@@ -59,10 +59,6 @@ The `abstract_blockchain` package can be installed using pip:
 pip install abstract_blockchain
 ```
 
-## Contact
-
-_Provide some contact information or link to maintainers's profile/page._
-
 ## Module - abstract_accounts.py
 
 This module, under the `abstract_blockchain` package, includes the `ACCTBridge` class, providing an interface to the user's personal wallet. It interacts with Ethereum accounts, allowing the user to perform transactions, estimate gas, retrieve transaction counts, sign and send transactions, and handle Ethereum addresses.
