@@ -180,9 +180,28 @@ The `abstract_contracts.py` script is a part of the `abstract_blockchain` module
 3. **User-friendly Interaction:** The script provides a comfortable user interface, allowing for inputs confirmation for a smart contract function or generation of a new transaction.
 
 4. **Error Handling and Validation:** It manages various situations and edge cases, such as checking the validity of a potential Ethereum address and dealing with batch inputs. It provides intuitive feedback and correction options throughout the code execution.
+## abstract_contract Module
+
+The `abstract_contracts.py` script within the abstract_blockchain module is designed to enhance user interaction with blockchain contracts associated with the Ethereum network. This script extensively uses the web3 module to enable these interactions while also leveraging PySimpleGUI to deliver a simple yet effective graphical user interface.
+
+The script initiates with the importation of needed modules and subsequently defines several utility functions. These functions specialize in aiding users in contract communication and boosting their utilization of smart contracts within the Ethereum network.
+
+Several features are encompassed by these functions such as average gas price estimation for transactions, verification and management of multiple input types including boolean, integers, and addresses, user interaction facilitation via GUIs, and tasks like check-summing for Ethereum addresses. Further, they empower users to interact directly with the blockchain, such as confirming inputs for a smart contract function or even producing a new transaction.
+
+The script introduces functions to convert a diverse range of data types to a format that is suitable for the interaction with the Ethereum blockchain. Data types like addresses, integers, bytes, boolean values, and strings are all catered to. They also support list processing of these data types, allowing for batch operations.
+
+The functions are coded to handle a broad array of situations and edge cases such as validating potential Ethereum addresses and managing batch inputs. The code regularly provides intuitive feedback and correction options. Overall, this script serves as a comprehensive suite of tools for users interested in interacting with smart contract careers on the Ethereum network.
+
+## abstract_rpcs Module
+The abstract_rpcs.py script is part of the Abstract Blockchain package and it offers the RPCBridge class that is designed to manage RPC parameters for different blockchain networks. RPC parameters are necessary for remote procedure calls (RPC), a protocol that one program can use to request a service from a program located in another computer on a network without having to understand the network's details. In the context of blockchain, RPC parameters are used to interact with the blockchain network.
+
+The RPCBridge class in abstract_rpcs.py provides several key functionalities. It allows users to filter and select RPC parameters through a graphical user interface (GUI), streamlining the process of defining these parameters. This makes it user-friendly even for those without deep knowledge of RPC parameters.
+
+The RPCBridge class also categorizes and organizes RPC parameters, so that they can easily be used in blockchain interactions. Information is thus made more accessible, and the usage of blockchain technology is simplified as a result.
+
+Overall, the abstract_rpcs.py script plays a crucial role in the Abstract Blockchain package by providing efficient and streamlined ways to manage RPC parameters, one of the essential parts of interacting with blockchain networks.
 
 
-Use the `abstract_contracts.py` script to make your interaction with the Ethereum network smooth, intuitive, and efficient.
 In conclusion, `abstract_blockchain` is a powerful tool that allows developers to interact with Ethereum networks and contracts. While the package is easy to install and use, we always recommend carefully reading the documentation and understanding how blockchain technologies work before getting started. Happy coding!
 
 For more info regarding license, please visit [here](https://github.com/your-username/abstract_blockchain/blob/main/LICENSE).
