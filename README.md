@@ -1,4 +1,4 @@
-# Abstract Blockchain
+## Abstract Blockchain
 
 Abstract Blockchain is a Python package designed to streamline and simplify interactions with blockchain networks and smart contracts. It consists of various utilities that enable users to manage RPC parameters, work with smart contract ABIs, and facilitate user-friendly interactions using graphical user interfaces (GUIs).
 
@@ -19,6 +19,8 @@ Abstract Blockchain is a Python package designed to streamline and simplify inte
 - **main.py**: This is the entry point of the package where files are uploaded.
 
 ## Installation
+
+The package is available on [PyPI](https://pypi.org/project/abstract-blockchain/). You can install it using pip with `pip install abstract-blockchain`.
 
 The package is available on [PyPI](https://pypi.org/project/abstract-blockchain/). You can install it using pip with `pip install abstract-blockchain`.
 ![Screenshot from 2023-09-11 09-46-43](https://github.com/AbstractEndeavors/abstract_essentials/assets/57512254/ae2017c7-542d-4353-be3d-9c71945bb3ab)
@@ -58,6 +60,7 @@ The `abstract_blockchain` package can be installed using pip:
 ```bash
 pip install abstract_blockchain
 ```
+
 
 ## Module - abstract_accounts.py
 
@@ -178,69 +181,11 @@ The `abstract_contracts.py` script is a part of the `abstract_blockchain` module
 
 4. **Error Handling and Validation:** It manages various situations and edge cases, such as checking the validity of a potential Ethereum address and dealing with batch inputs. It provides intuitive feedback and correction options throughout the code execution.
 
+
 Use the `abstract_contracts.py` script to make your interaction with the Ethereum network smooth, intuitive, and efficient.
-## Introducing The abstract_blockchain Package
-
-Welcome to the abstract_blockchain package, a comprehensive toolkit designed to streamline your interactions with the Ethereum blockchain network. The Ethereum network is a powerful and flexible system, and the abstract_blockchain package was created to make accessing its incredible features as simple as possible, both for expert users and those new to blockchain technology.
-
-Inside this package, you will find two main scripts,
-
-1. `abstract_contracts.py`, which contains a range of utility functions geared at aiding communication with smart contracts on the Ethereum network. This tool allows for the estimation of average gas prices, handling of a host of inputs, and even supports the generation of entirely new transactions. It’s also outfitted with powerful error checking and validation capabilities to ensure smooth operation.
-
-2. `abstract_rpcs.py` contains the RPCBridge class which manages RPC (Remote Procedure Call) parameters for various blockchain networks. This feature plays a crucial role in interacting with the Ethereum network. It simplifies the process of defining and managing RPC parameters through use of a graphical user interface that is user-friendly and streamlined.
-
-## Legend
-
-- **abstract_contracts.py**: A script that houses a host of utility functions designed to simplify communication with the Ethereum network and its smart contracts.
-
-- **abstract_rpcs.py**: This script contains the RPCBridge class, which manages RPC parameters for engaging with different blockchain networks. This class aids in defining and managing RPC parameters via a user-friendly GUI.
-
-- **RPC parameters**: Parameters necessary for executing remote procedure calls, a protocol for requesting services from a program on a separate computer on the network.
-## Installation Guide
-
-To use the `abstract_blockchain` package, you first need to install it. Follow the steps below for installation.
-
-**Prerequisites**:
-
-1. Python 3.8 (or higher) - If you don't have Python installed, you can download it [here](https://www.python.org/downloads/).
-2. Ethereum Node Running Locally
-
-**Steps for Installation**
-
-1. Clone the repository.
-```sh
-$ git clone https://github.com/your-username/abstract_blockchain.git
-```
-
-2. Change the directory.
-```sh
-$ cd abstract_blockchain
-```
-
-3. Install the package.
-```sh
-$ pip install .
-```
-
-Congratulations, you've successfully installed the `abstract_blockchain` package!
-
-## Usage
-
-After installation, you're set to use the `abstract_blockchain` package. Here's how you can use it to interact with Ethereum contracts.
-
-```python
-from abstract_blockchain import abstract_contracts, abstract_rpcs
-
-rpc_bridge = abstract_rpcs.RPCBridge('<rpc_parameters_here>')
-abstract_contracts.setup(rpc_bridge)
-contract = abstract_contracts.AbstractContract('<contract_address>', '<abi>')
-```
-
-In this example, `<rpc_parameters_here>` is the RPC parameters you want to use to connect to the Ethereum network, `<contract_address>` is the Ethereum address of the contract you want to interact with, and `<abi>` is the ABI of the contract. Please replace these placeholders with the actual values.
-
-You can now interact with Ethereum contracts and networks using this package. Please consult the documentation for further details and functionalities.
 In conclusion, `abstract_blockchain` is a powerful tool that allows developers to interact with Ethereum networks and contracts. While the package is easy to install and use, we always recommend carefully reading the documentation and understanding how blockchain technologies work before getting started. Happy coding!
 
 For more info regarding license, please visit [here](https://github.com/your-username/abstract_blockchain/blob/main/LICENSE).
----
+
+
 
