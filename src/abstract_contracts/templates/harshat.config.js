@@ -34,7 +34,7 @@ module.exports = {
 defaultNetwork: "FUJI_avax",
 etherscan: {
     apiKey: {
-      avalancheFujiTestnet: 'G8N1PH6Y9X7U6FH3HB4D3RNNSTRCQNIEHG'
+      avalancheFujiTestnet: ''
     }
   },
 
@@ -58,7 +58,7 @@ etherscan: {
   networks: {
     "FUJI_avax":{
        url: "https://api.avax-test.network/ext/bc/C/rpc",
-       apiKey: 'G8N1PH6Y9X7U6FH3HB4D3RNNSTRCQNIEHG',
+       apiKey: '',
        accounts: getHDWallet(),
 	gasLimit: 500000000,
       	gas: 100,
