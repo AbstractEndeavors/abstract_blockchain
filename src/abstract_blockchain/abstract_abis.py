@@ -29,12 +29,12 @@ Example Usage:
 # Import necessary modules and classes
 from .abstract_rpcs import RPCBridge, Choose_RPC_Parameters_GUI
 from .abstract_apis import APIBridge
-from abstract_webtools import DynamicRateLimiterManagerSingleton, get_limited_request
+from abstract_webtools import DynamicRateLimiterManager
 from abstract_utilities.type_utils import if_default_return_obj
 from abstract_security.envy_it import get_env_value
 import json
 # Instantiate the rate limiting manager
-request_manager = DynamicRateLimiterManagerSingleton.get_instance()
+request_manager = DynamicRateLimiterManager()
 
 class ABIBridge:
     """

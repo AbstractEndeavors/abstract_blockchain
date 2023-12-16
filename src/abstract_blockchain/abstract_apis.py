@@ -1,10 +1,10 @@
-from abstract_webtools import DynamicRateLimiterManagerSingleton,get_limited_request
+from abstract_webtools import DynamicRateLimiterManager
 from .abstract_rpcs import Choose_RPC_Parameters_GUI,RPCBridge
 from .abstract_api_gui import choose_api_gui
 from abstract_utilities.type_utils import if_default_return_obj
 from abstract_security.envy_it import get_env_value
 import json
-request_manager = DynamicRateLimiterManagerSingleton.get_instance()
+request_manager = DynamicRateLimiterManager()
 class APIBridge:
     def __init__(self,api_data:str=None,rpc:dict=None,address:str=None):
         if rpc == None:
@@ -96,7 +96,7 @@ class APIBridge:
         """
         request_url=if_default_return_obj(obj=self.api_url,default=request_url)
         request_manager.add_service(service_name=service_name, low_limit=low_limit, high_limit=high_limit, limit_epoch=limit_epoch, starting_tokens=starting_tokens)
-        return get_limited_request(request_url=request_url, service_name=service_name)
+        return request_manager.get_limited_request(request_url=request_url, service_name=service_name)
     def get_response(self,request=None):
         """
         Parse the JSON response and return the ABI.
@@ -152,5 +152,5 @@ class APIBridge:
         except:
             print("Invalid type for ABI. Must be either str, dict, or list.")
             return json_obj
-
+APIBridge()
  

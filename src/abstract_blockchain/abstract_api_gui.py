@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+from abstract_gui import AbstractWindowManager,sg
 from abstract_utilities.list_utils import filter_json_list_values,recursive_json_list
 apiCallDesc = {'multiTopic': {'description': 'searchtopics', 'example': 'https://api.etherscan.io/api?module=logs&action=getLogs&fromBlock=12878196&toBlock=12879196&topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef&topic0_1_opr=and&topic1=0x0000000000000000000000000000000000000000000000000000000000000000&page=1&offset=1000&apikey=YourApiKeyToken', 'pieces': {'module': ['logs'], 'action': ['getLogs'], 'fromBlock': [], 'toBlock': [], 'topic0': [], 'topic0_1_opr': ['and'], 'topic1': [], 'page': [], 'offset': [], 'apikey': ['YourApiKeyToken']}, 'inputs': ['fromBlock', 'toBlock', 'topic0', 'topic1', 'page', 'offset'], 'title': 'multitopic'},
                'topicSearch': {'description': 'getbytopic', 'title': 'topicsearch', 'pieces': {'module': ['logs'], 'action': ['getLogs'], 'fromBlock': [], 'toBlock': ['latest'], 'address': [], 'topic0': [], 'apikey': ['YourApiKeyToken']}, 'inputs': ['fromBlock', 'address', 'topic0'], 'example': 'https://api.etherscan.io/api?module=logs&action=getLogs&fromBlock=379224&toBlock=latest&address=0x33990122638b9132ca29c723bdf037f1a891a70c&topic0=0xf63780e752c6a54a94fc52715dbc5518a3b4c3c2833d301a204226548a2a8545&apikey=YourApiKeyToken'},
@@ -79,18 +79,8 @@ def make_invisible_unless(window,values,visible_list,example):
                 window[f'-{num_each}_INPUT-'].update(visible=False)
                 window[f'-{num_each}_EXAMPLE_TEXT-'].update(visible=False)
                 window[f'-{num_each}_EXAMPLE_INPUT-'].update(visible=False)
-def choose_api_gui():
-    api_keys = list(apiCallDesc.keys())
-    # Main Window Layout
-    layout = [
-        [sg.Text('Select API Call Type:'), sg.Combo(api_keys, key='API_SELECT', enable_events=True)],
-        [sg.Frame('Parameters:', [[sg.Column(generate_api_gui(apiCallDesc[api_keys[0]]), key='API_GUI')]])]
-    ]
-    window = sg.Window('API Call GUI', layout)
-    while True:
-        event, values = window.read()
-        if event in (sg.WIN_CLOSED, 'Exit',"OK"):
-            break
+def while_window(event,values,window):
+
         # If user selects a different API from the dropdown
         if event == 'API_SELECT':
             selected_api = values['API_SELECT']
@@ -140,6 +130,15 @@ def choose_api_gui():
             # Here's where you would combine the base URL with the user's inputs 
             # to generate the full API URL. I'm just simulating this step.
             window['API_URL'].update(text)
-    window.close()
-    return values['API_URL']
+def choose_api_gui():
+    api_keys = list(apiCallDesc.keys())
+    # Main Window Layout
+    layout = [
+        [sg.Text('Select API Call Type:'), sg.Combo(values=api_keys,default_value=api_keys[0], key='API_SELECT', enable_events=True)],
+        [sg.Frame('Parameters:', [[sg.Column(generate_api_gui(apiCallDesc[api_keys[0]]), key='API_GUI')]])]
+    ]
+    windows_mgr=AbstractWindowManager()
+    window_name = windows_mgr.add_window(title='API Call GUI', layout=layout,close_events=['Exit',"OK"],event_handlers=[while_window])
+    windows_mgr.while_window(window_name=window_name)
+    return windows_mgr.search_closed_windows(window_name=window_name)['values']['API_URL']
 

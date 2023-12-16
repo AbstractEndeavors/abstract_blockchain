@@ -204,7 +204,8 @@ Overall, the abstract_rpcs.py script plays a crucial role in the Abstract Blockc
 
 In conclusion, `abstract_blockchain` is a powerful tool that allows developers to interact with Ethereum networks and contracts. While the package is easy to install and use, we always recommend carefully reading the documentation and understanding how blockchain technologies work before getting started. Happy coding!
 
-For more info regarding license, please visit [here](https://github.com/your-username/abstract_blockchain/blob/main/LICENSE).
+For more info regarding license, please visit [here](https://github.com/AbstractEndeavors/abstract_blockchain/blob/main/LICENSE).
+
 
 
 

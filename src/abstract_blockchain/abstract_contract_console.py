@@ -1,12 +1,8 @@
-from abstract_gui import create_window_manager,agf,get_push
+from abstract_gui import get_push,AbstractWindowManager
 from .abstract_rpcs import rpc_win_while,get_rpc_layout,get_rpc_js,RPCBridge
 from .abstract_abis import ABIBridge
 from .abstract_accounts import ACCTBridge
 import codecs
-# Initialize the window manager and bridge 
-# (Assuming you still want to name it "blockchain_gui_consol")
-new_window_mgr, new_bridge, new_script_name = create_window_manager(script_name="blockchain_gui_consol", global_var=globals())
-new_bridge_global = new_bridge.return_global_variables(new_script_name)
 def mkBool(x):
     if str(x).lower() in ['true','t','yes','y','0']:
         return str(0)
@@ -320,7 +316,7 @@ def abstract_contract_console_main(rpc_list:list=None):
     # Construct the final layout
     new_layout = [[get_account_layout()],get_abi(),rpc_layout]
     # Create and run the window
-    new_window = new_window_mgr.get_new_window(title="New Blockchain Console", layout=[new_layout], event_function="win_while")
-    new_bridge_global["main_window"] = new_window
-    new_window_mgr.while_basic(window=new_window)
+    window_mgr = AbstractWindowManager()
+    new_window = window_mgr.add_window(title="New Blockchain Console", layout=[new_layout], event_function=win_while)
+    new_window_mgr.while_window(window=new_window)
 abstract_contract_console_main()
